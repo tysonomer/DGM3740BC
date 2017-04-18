@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Basic Page Needs
+	================================================== -->
+	<meta charset="utf-8">
+	<title>Universalis</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+	================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+	================================================== -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald|Open+Sans:400italic,600italic,700italic,400,700,600">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/layout.css">
+
+
+	<!-- JS
+	================================================== -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="js/slider.js"></script>
+	
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<section class="container">
+		
+		<div class="twelve columns">
+			<nav class="top">
+				<ul>
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="shop.html" class="selected">SHOP</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+				</ul>
+			</nav>
+		</div>
+
+	</section><!-- end .container -->
+
+	<header class="main">
+		<div class="container">
+			<div class="twelve columns">				
+				<h2>Universalis Shop</h2>
+				<h3>We sell custom t-shirts, mugs and mouse pads</h3>
+			</div>
+		</div>
+	</header><!-- end .main -->
+	
+	<section class="container">
+	
+		<div class="twelve columns">
+			<h3 class="big-product-title">Bender Blender T-Shirt</h3>		
+		</div>
+	
+		<div class="eight columns">
+			<div class="image-with-price big">
+				<img src="shop/big-product-image.jpg" />
+				<span>$10<sup>99</sup></span>
+			</div>
+			<ul class="gallery-thumbnails">
+				<li><a href="#"><img src="shop/product-thumb-1.jpg" /></a></li>
+				<li><a href="#" class="selected"><img src="shop/product-thumb-4.jpg" /></a></li>
+				<li><a href="#"><img src="shop/product-thumb-3.jpg" /></a></li>
+				<li><a href="#"><img src="shop/product-thumb-2.jpg" /></a></li>
+			</ul>
+		</div>
+		
+		<div class="four columns">
+			<p class="description">Cotton and polyester blend makes for super soft fleece. Reinforced pocket and zipper stitching, plus cord control (a nifty slit inside the right pocket plus an interior loop). Unisex sizing to fit both guys and girlies.</p>
+			<!-- AddThis Button BEGIN -->
+			<div class="addthis_toolbox addthis_default_style ">
+				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+				<a class="addthis_button_tweet"></a>
+				<a class="addthis_counter addthis_pill_style"></a>
+			</div>
+			<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+			<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4dfb2d4562625531"></script>
+			<!-- AddThis Button END -->
+		
+			<h3>Sizes</h3>
+			<ul class="sizes">
+				<li><a href="#">S</a></li>
+				<li><a href="#">M</a></li>
+				<li><a href="#" class="unavailable" title="Unavailable size.">L</a></li>
+				<li><a href="#" class="unavailable" title="Unavailable size.">XL</a></li>
+				<li><a href="#" class="selected">2XL</a></li>
+				<li><a href="#">3XL</a></li>
+			</ul>
+
+			<a href="#" class="add-to-cart">ADD TO CART</a>
+		</div>
+	</section><!-- end .container -->
+
+	
+	<footer>
+		<div class="container">
+			<hr/>
+			<div class="nine columns">
+				<nav>
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Shop</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="three columns">
+				Powered by <a href="http://www.businesscatalyst.com" class="powered">Business Catalyst</a>
+			</div>
+		</div>
+	</footer>
+	
+	<script>
+		$(document).ready(function(){
+			
+			$('.slider').startSlider();
+			
+			$('ul.sizes li a:not(.unavailable)').click(function(e){
+				e.preventDefault();
+				$(this).parent().parent().find('a').removeClass('selected');
+				$(this).toggleClass('selected');
+			});
+			
+		});
+	</script>
+	
+<!-- End Document
+================================================== -->
+</body>
+</html>

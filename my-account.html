@@ -1,0 +1,122 @@
+<section class="container">
+	<div class="twelve columns">
+	
+		<ul class="breadcrumbs clearfix">
+			<li><a href="/">Home</a> &raquo;&nbsp;</li>
+			<li><a href="/my-account">My Account</a></li>
+		</ul>	
+	
+		<h4>Orders History</h4>
+		<hr>
+		
+		<div class="orders-history">
+			<table class="data-table order-list collapsing-table" cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+						<th>Order</th>
+						<th>Date</th>
+						<th>Status</th>
+						<th>Ammount</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- You can edit the list template from Layouts/CustomerOrders/list.html -->
+					{module_order,a,}
+				</tbody>
+			</table>		
+		</div>
+		
+		<script>
+			// Prevent showing an empty orders table and display a custom more advanced message for when the customer doesn't have any orders
+			if('{module_order,a,}'=='No orders found.')
+			{
+				$('.orders-history').html('<div style="text-align: center;font-size: 14px;">You don\'t have any orders so far. <a href="/shop.html" class="read-more">Go shopping <span>&rarr;</span></a></div>');
+			}
+		</script>
+		
+		<br/>
+	
+		<h4>Cases History</h4>
+		<hr>
+		
+		<table class="data-table case-list collapsing-table" cellpadding="0" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Subject</th>
+					<th>Case number</th>
+					<th>Date</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- You can edit the list template from Layouts/CustomerCases/list.html -->
+				{module_case,a,}
+			</tbody>
+		</table>
+	
+		<script>
+			// Script to make the whole row clickable instead of just the name
+			$('td.ref').parent().click(function(){
+				window.location.href = $(this).find('.ref a').attr('href');
+			});
+		</script>
+	
+		<br/>
+	
+		<h4>Your Account Details</h4>
+		<hr>
+		
+		<div class="clearfix">
+			<div class="three columns alpha">
+				<label for="firstname">First name</label>
+				<p id="firstname">{module_firstname}</p>
+			</div>
+			
+			<div class="three columns">
+				<label for="lastname">Last name</label>
+				<p id="lastname">{module_lastname}</p>		
+			</div>
+			
+			<div class="three columns">
+				<label for="emailaddress">Email address</label>
+				<p id="emailaddress">{module_emailaddress}</p>		
+			</div>
+				
+			<div class="three columns omega">
+				<label for="username">Username</label>
+				<p id="username">{module_username}</p>			
+			</div>
+			
+			<div class="three columns alpha">	
+				<label for="homeaddress">Home Address</label>
+				<p id="homeaddress">
+					{module_homeaddress},<br/>
+					{module_homecity}, {module_homestate},<br/>
+					{module_homezip}<br/>
+					<strong>{module_homecountry}</strong>
+					<script>
+						if( 
+							('{module_homeaddress}'=='') && 
+							('{module_homecity}'=='') && 
+							('{module_homestate}'=='') &&
+							('{module_homezip}'=='') &&
+							('{module_homecountry}'=='')
+						) $('#homeaddress').html('N/A');
+					</script>
+				</p>
+	
+				<label for="homephone">Home Phone</label>
+				<p id="homephone">
+					{module_homephone}
+					<script>if('{module_homephone}'=='') $('#homephone').html('N/A');</script>	
+				</p>
+			</div>
+	
+		</div>
+		
+		<div style="padding: 5px;background: #f6f6f6;text-align: right;">
+			<a href="/change-account-details" style="padding-right: 15px;">Change details</a>
+		</div>
+	
+	</div>
+</section>
